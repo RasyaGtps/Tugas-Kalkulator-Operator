@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <title>Kalkulator Sederhana made by Rasya</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Kalkulator Sederhana</h1>
+
+    <form name="fform">
+      <center>
+        <table>
+          <tr>
+            <td>Nilai Awal:</td>
+            <td><input type="text" name="nil1" /></td>
+          </tr>
+          <tr>
+            <td>Nilai Kedua:</td>
+            <td><input type="text" name="nil2" /></td>
+          </tr>
+          <tr>
+            <td>Hasil:</td>
+            <td><input type="text" name="hasil" readonly /></td>
+          </tr>
+        </table>
+        <br />
+        <input type="button" value="+" onClick="tambah()" />
+        <input type="button" value="-" onClick="kurang()" />
+        <input type="button" value="/" onClick="bagi()" />
+        <input type="button" value="X" onClick="kali()" />
+        <input type="button" value="%" onClick="mod()" />
+        <input type="button" value="^" onClick="pangkat()" />
+        <input type="reset" value="Reset" />
+        <input type="button" value="=" onClick="penambahan()" />
+        <input type="button" value="+=" onClick="penambahan()" />
+        <input type="button" value="-=" onClick="pengurangan()" />
+        <input type="button" value="X=" onClick="perkalian()" />
+        <input type="button" value="^=" onClick="pemangkatan()" />
+        <input type="button" value="/=" onClick="pembagian()" />
+        <input type="button" value="%=" onClick="sisabagi()" />
+        <input type="button" value=">" onClick="lebihbesar()" />
+        <input type="button" value="<" onClick="lebihkecil()" />
+        <input type="button" value="==" onClick="samadengan()" />
+        <input type="button" value="!=" onClick="tidaksamadengan()" />
+        <input type="button" value=">=" onClick="lebihbesarsamadengan()" />
+        <input type="button" value="<=" onClick="lebihkecilsamadengan()" />
+      </center>
+    </form>
+    <script>
+      // Tugas console log
+      var nilaiujian1 = 85;
+      var nilaiujian2 = 92;
+      var nilaiujian3 = 88;
+      var nilaiujian4 = 78;
+      var nilaiujian5 = 90;
+      var nilaitotal = 0;
+      var ratarata = 0;
+      nilaitotal =
+        nilaiujian1 + nilaiujian2 + nilaiujian3 + nilaiujian4 + nilaiujian5;
+      ratarata = nilaitotal / 5;
+      console.log(
+        "Nilai ujian 1 = " + nilaiujian1 + ",",
+        "nilai ujian 2 = " + nilaiujian2 + ",",
+        "nilai ujian 3 = " + nilaiujian3+ ",",
+        "nilai ujian 4 = " + nilaiujian4 + ",", 
+        "nilai ujian 5 = " + nilaiujian5 + ",",
+      );
+      console.log("Nilai Rata-rata nilai ujian = " + ratarata);
+      //Sistem Kalkulator made by Rasya, murni ? yes
+      function tambah() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = bil1 + bil2;
+        document.fform.hasil.value = hasil;
+      }
+
+      function kurang() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = bil1 - bil2;
+        document.fform.hasil.value = hasil;
+      }
+
+      function bagi() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = bil1 / bil2;
+        document.fform.hasil.value = hasil;
+      }
+
+      function kali() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = bil1 * bil2;
+        document.fform.hasil.value = hasil;
+      }
+
+      function mod() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = bil1 % bil2;
+        document.fform.hasil.value = hasil;
+      }
+
+      function pangkat() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        var hasil = Math.pow(bil1, bil2);
+        document.fform.hasil.value = hasil;
+      }
+      let lastValue = 0;
+
+      function penambahan() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        lastValue += hasil;
+        document.fform.hasil.value = lastValue;
+      }
+
+      function pengurangan() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        lastValue -= hasil;
+        document.fform.hasil.value = lastValue;
+      }
+
+      function perkalian() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        lastValue *= hasil;
+        document.fform.hasil.value = lastValue;
+      }
+
+      function pemangkatan() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        if (lastValue === 0) {
+          lastValue = hasil;
+        } else {
+          lastValue = Math.pow(lastValue, hasil);
+        }
+        document.fform.hasil.value = lastValue;
+      }
+
+      function pembagian() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        if (hasil !== 0) {
+          lastValue /= hasil;
+        } else {
+          alert("Tidak bisa membagi dengan nol");
+        }
+        document.fform.hasil.value = lastValue;
+      }
+
+      function sisabagi() {
+        var hasil = parseFloat(document.fform.hasil.value);
+        lastValue %= hasil;
+        document.fform.hasil.value = lastValue;
+      }
+
+      function lebihbesar() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 > bil2;
+      }
+
+      function lebihkecil() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 < bil2;
+      }
+
+      function samadengan() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 == bil2;
+      }
+
+      function tidaksamadengan() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 != bil2;
+      }
+
+      function lebihbesarsamadengan() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 >= bil2;
+      }
+
+      function lebihkecilsamadengan() {
+        var bil1 = parseFloat(document.fform.nil1.value);
+        var bil2 = parseFloat(document.fform.nil2.value);
+        document.fform.hasil.value = bil1 <= bil2;
+      }
+    </script>
+  </body>
+</html>
